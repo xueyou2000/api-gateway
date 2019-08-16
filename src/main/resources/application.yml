@@ -1,0 +1,31 @@
+
+server:
+  port: 5555
+
+spring:
+  application:
+    name: api-gateway
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://@eureka-hostname@:@eureka-port@/eureka/,http://localhost2:2001/eureka/
+zuul:
+  routes:
+    service-feign: /feign/**
+    client: /client/**
+
+hystrix:
+  threadpool:
+    default:
+      coreSize: 500
+      maximumSize: 500
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 120000
