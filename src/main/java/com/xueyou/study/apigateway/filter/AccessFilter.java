@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.util.UrlPathHelper;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import static org.springframework.cloud.netflix.zuul.filters.support.FilterConstants.PRE_TYPE;
 
@@ -90,7 +89,6 @@ public class AccessFilter extends ZuulFilter {
             String location = route.getLocation();
             log.info("location {}", location);
         }
-
 
 
         if (accessToken == null) {
